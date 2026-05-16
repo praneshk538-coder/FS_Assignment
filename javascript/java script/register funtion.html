@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function register() {
+  let user = document.getElementById("regUser").value;
+  let pass = document.getElementById("regPass").value;
+
+  let userData = {
+    username: user,
+    password: pass
+  };
+
+  localStorage.setItem("user", JSON.stringify(userData));
+  alert("Registered Successfully!");
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+
+
+
+
+    q-1
+      
+      
+      <input type="text" id="nameInput" placeholder="Enter your name">
+<p id="preview"></p>
+
+<script>
+const input = document.getElementById("nameInput");
+const preview = document.getElementById("preview");
+
+input.addEventListener("input", () => {
+  preview.textContent = input.value;
+});
+
+</script>
+
+
+
+//   q-2
+
+
+<button id="btn">Click Me</button>
+<p>Count: <span id="count">0</span></p>
+
+<script>
+let count = 0;
+
+const btn = document.getElementById("btn");
+const display = document.getElementById("count");
+
+btn.addEventListener("click", () => {
+  count++;
+  display.textContent = count;
+});
+</script>
+
+
+
+
+
+//     q-3
+
+
+<input type="password" id="password">
+<button id="toggle">Show</button>
+
+<script>
+const password = document.getElementById("password");
+const toggle = document.getElementById("toggle");
+
+toggle.addEventListener("click", () => {
+  if (password.type === "password") {
+    password.type = "text";
+    toggle.textContent = "Hide";
+  } else {
+    password.type = "password";
+    toggle.textContent = "Show";
+  }
+});
+</script>
+
+
+
+
+
+
+//     q-4
+
+<form id="form">
+  <input type="text" id="name" placeholder="Enter name">
+  <button type="submit">Submit</button>
+</form>
+
+<p id="output"></p>
+
+<script>
+const form = document.getElementById("form");
+const nameInput = document.getElementById("name");
+const output = document.getElementById("output");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // stop reload
+  output.textContent = "Hello " + nameInput.value;
+});
+</script>
+
+
+//  q-5
+
+<button class="color" data-color="red">Red</button>
+<button class="color" data-color="green">Green</button>
+<button class="color" data-color="blue">Blue</button>
+
+<script>
+const buttons = document.querySelectorAll(".color");
+
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.body.style.backgroundColor = btn.dataset.color;
+  });
+});
+</script>
+
+
+
+
+</body>
+</html>

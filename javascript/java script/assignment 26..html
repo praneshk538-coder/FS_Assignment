@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+                  //    arrow function
+                       
+
+function add(a, b) {
+  return a + b;
+}
+const addArrow = (a, b) => a + b;
+
+console.log(addArrow(5, 3)); 
+
+
+        
+
+
+              // Template Literals
+
+
+
+
+let name = "Rere";
+let age = 25;
+
+console.log(`Hello ${name}, your age is ${age}`);
+
+
+
+
+
+
+                  // Default Parameter
+
+
+function greet(name = "Guest") {
+  console.log(`Hello ${name}`);
+}
+
+greet("Rere");
+greet(); 
+
+
+
+                  // Ternary Operator
+
+let num = 7;
+
+let result = (num % 2 === 0) ? "Even" : "Odd";
+console.log(result);
+
+
+                   //  Array Destructuring
+
+
+                   let arr = [10, 20, 30];
+
+let [a, b] = arr;
+
+console.log(a, b);
+
+
+               // Object Destructuring
+
+
+               let obj = { name: "Rere", age: 25 };
+
+let { name1, age1 } = obj;
+
+console.log(name1, age1);
+
+                 //  Spread Operator
+
+                 let arr1 = [1, 2];
+let arr2 = [3, 4];
+
+let merged = [...arr1, ...arr2];
+
+console.log(merged); 
+
+
+              //  Spread Operator (Object)
+
+let person = { name: "Rere", age: 25 };
+
+let updated = { ...person, city: "Chennai" };
+
+console.log(updated);
+
+          // Rest Operator
+        
+function sum(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3, 4));
+
+
+      // Rest with Destructuring
+
+let nums = [1, 2, 3, 4];
+
+let [first, ...rest] = nums;
+
+console.log(first); // 1
+console.log(rest);  // [2,3,4]
+
+   
+   //  optional changes
+
+let user = {};
+
+console.log(user?.name); 
+
+//  Nullish Coalescing
+
+let value = null;
+
+console.log(value ?? "Default Value");
+
+//  Short Property
+
+
+let name2 = "Rere";
+let age2 = 25;
+
+let user1 = { name2, age2 };
+
+console.log(user1);
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

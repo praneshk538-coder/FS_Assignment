@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+
+
+
+
+<script>
+
+      // double Values
+
+      let arr1 = [1,2,3,4];
+      let double = arr1.map(num => num * 2);
+           console.log(double);
+
+           //  Convert to String
+
+        let arr2 = [1,2,3];
+        let str = arr2.map(num => num.toString());
+        console.log(str);
+
+
+                //  Add Prefix
+         let fruits = ["apple","banana"];
+         let prefixed = fruits.map(item => "fruit: " + item);
+            console.log(prefixed);
+
+
+            // Even Numbers
+
+       let arr3 = [1,2,3,4,5,6];
+       let even = arr3.filter(num => num % 2 === 0);
+                  console.log(even);
+
+
+                  // Greater Than 50
+
+                let arr4 = [10,60,30,80];
+                let gt50 = arr4.filter(num => num > 50);
+                   console.log(gt50);
+
+                   
+                   // Filter Names
+
+
+
+                   let names = ["Ram","Ravi","John"];
+                   let rNames = names.filter(name => name.startsWith("R"));
+                    console.log(rNames);
+
+
+
+                    //     First Greater Value
+
+
+
+
+                    let arr5 = [10,20,30,40];
+                    let first = arr5.find(num => num > 25);
+                    console.log(first);
+
+
+
+                    //  Find user
+
+
+                    let users = [
+                     {name: "Ram", age: 20},
+                     {name: "Ravi", age: 30},
+                     {name: "John", age: 28}
+                                                ];
+
+                             let user = users.find(u => u.age > 25);
+                                    console.log(user);
+
+
+
+                  //  Sum of Numbers
+
+
+                  let arr6 = [1,2,3,4];
+let sum = arr6.reduce((acc, curr) => acc + curr, 0);
+console.log(sum);
+
+
+
+
+              //  Find Maximum
+
+
+              let arr7 = [10,50,20,80];
+let max = arr7.reduce((acc, curr) => acc > curr ? acc : curr);
+console.log(max);
+
+
+
+
+           // Count Total
+
+
+
+
+           let arr8 = [5,5,5];
+let total = arr8.reduce((acc, curr) => acc + curr, 0);
+console.log(total);
+
+
+
+
+        // Check Even Exists
+
+
+        let arr9 = [1,3,5,6];
+let hasEven = arr9.some(num => num % 2 === 0);
+console.log(hasEven);
+
+
+
+
+        // Age Check
+
+
+        let users2 = [
+  {name: "Ram", age: 20},
+  {name: "Ravi", age: 15}
+];
+
+let hasMinor = users2.some(u => u.age < 18);
+console.log(hasMinor);
+
+
+
+
+     // All Even Check
+
+
+            let arr10 = [2,4,6];
+let allEven = arr10.every(num => num % 2 === 0);
+console.log(allEven);
+
+ 
+     //  All Passed
+
+           let marks = [50,60,70];
+let passed = marks.every(mark => mark > 40);
+console.log(passed);
+
+
+
+//    Print Values
+
+
+      let arr11 = [10,20,30];
+arr11.forEach(num => console.log(num));
+
+
+//    Sum Using forEach
+
+
+      let arr12 = [1,2,3,4];
+let sum2 = 0;
+
+arr12.forEach(num => sum2 += num);
+
+console.log(sum2);
+
+
+
+//      Product Filter
+
+
+
+            let products = [
+  {name: "Phone", price: 1500},
+  {name: "Pen", price: 50},
+  {name: "Laptop", price: 50000}
+];
+
+let costly = products.filter(p => p.price > 1000);
+console.log(costly);
+
+
+//      User Names
+
+                
+              let users3 = [
+  {name: "Ram", age: 20},
+  {name: "Ravi", age: 30}
+];
+
+let namesOnly = users3.map(u => u.name);
+console.log(namesOnly);
+
+
+//       Total Price
+
+
+
+              let cart = [
+  {item: "Phone", price: 1500},
+  {item: "Laptop", price: 50000}
+];
+
+let totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
+console.log(totalPrice);
+
+
+
+
+
+  
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

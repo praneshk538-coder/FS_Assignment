@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+<script>
+
+// Function to generate random array
+function generateRandomArray(size = 10) {
+    let arr = [];
+    for (let i = 0; i < size; i++) {
+        arr.push(Math.floor(Math.random() * 100));
+    }
+    return arr;
+}
+
+// Memoization (like useMemo)
+function createMemoSort() {
+    let lastArray = null;
+    let lastResult = null;
+
+    return function (newArray) {
+        // Check if array changed
+        if (
+            lastArray &&
+            JSON.stringify(lastArray) === JSON.stringify(newArray)
+        ) {
+            console.log("Using cached sorted array...");
+            return lastResult;
+        }
+
+        console.log("Sorting array...");
+        
+        // Sorting (ascending)
+        let sorted = [...newArray].sort((a, b) => a - b);
+
+        // Store cache
+        lastArray = [...newArray];
+        lastResult = sorted;
+
+        return sorted;
+    };
+}
+
+// Create memoized sort function
+const memoSort = createMemoSort();
+
+// Theme toggle
+let theme = "light";
+function toggleTheme() {
+    theme = theme === "light" ? "dark" : "light";
+    console.log("Theme changed to:", theme);
+}
+
+// Simulate buttons
+let currentArray = generateRandomArray();
+
+// Initial
+console.log("Initial Array:", currentArray);
+console.log("Sorted:", memoSort(currentArray));
+
+// Call again (should use cache)
+console.log("Sorted again:", memoSort(currentArray));
+
+// Generate new array (like button click)
+function generateNewArray() {
+    currentArray = generateRandomArray();
+    console.log("\nNew Array:", currentArray);
+    console.log("Sorted:", memoSort(currentArray));
+}
+
+// Simulate actions
+generateNewArray();   // new array → sorting runs
+toggleTheme();        // toggle theme
+console.log("Sorted again:", memoSort(currentArray)); // cached
+ 
+ 
+
+ 
+ 
+ 
+
+//  task 2
+
+
+// Generate 5000 random names
+function generateNames(count = 5000) {
+    let names = [];
+    const letters = "abcdefghijklmnopqrstuvwxyz";
+
+    for (let i = 0; i < count; i++) {
+        let name = "";
+        let length = Math.floor(Math.random() * 5) + 5; // 5–10 letters
+
+        for (let j = 0; j < length; j++) {
+            name += letters[Math.floor(Math.random() * letters.length)];
+        }
+
+        names.push(name);
+    }
+
+    return names;
+}
+
+// Memoization (like useMemo)
+function createMemoFilter() {
+    let lastNames = null;
+    let lastSearch = "";
+    let lastResult = [];
+
+    return function (names, searchText) {
+        // Check if both names and search input are same
+        if (
+            lastNames === names &&
+            lastSearch === searchText
+        ) {
+            console.log("Using cached filter result...");
+            return lastResult;
+        }
+
+        console.log("Filtering running...");
+
+        let result = names.filter(name =>
+            name.toLowerCase().includes(searchText.toLowerCase())
+        );
+
+        // Save cache
+        lastNames = names;
+        lastSearch = searchText;
+        lastResult = result;
+
+        return result;
+    };
+}
+
+// Create memo filter function
+const memoFilter = createMemoFilter();
+
+// Theme toggle
+let theme = "light";
+function toggleTheme() {
+    theme = theme === "light" ? "dark" : "light";
+    console.log("Theme:", theme);
+}
+
+// Data
+let namesList = generateNames();
+
+// Simulate search input
+function searchNames(searchText) {
+    console.log(`\nSearch: "${searchText}"`);
+    let result = memoFilter(namesList, searchText);
+    console.log("Results count:", result.length);
+}
+
+// Initial search
+searchNames("a");
+
+// Same search → should use cache
+searchNames("a");
+
+// Change search → filtering runs
+searchNames("ab");
+
+// Toggle theme → should NOT trigger filtering
+toggleTheme();
+
+// Same search again → should use cache
+searchNames("ab");
+
+
+
+// task3
+
+// Simulate React.memo
+function memo(Component) {
+    let lastProps = null;
+
+    return function (props) {
+        if (lastProps && JSON.stringify(lastProps) === JSON.stringify(props)) {
+            console.log("Child skipped (memoized) ❌");
+            return;
+        }
+
+        console.log("Child rendered ✅");
+        lastProps = props;
+        Component(props);
+    };
+}
+
+// Child Component
+function Child({ calculateSquare }) {
+    let num = 5;
+    let result = calculateSquare(num);
+    console.log(`Square of ${num} is:`, result);
+}
+
+// Wrap child with memo (like React.memo)
+const MemoChild = memo(Child);
+
+// Simulate useCallback
+function createUseCallback() {
+    let lastDeps = null;
+    let lastFn = null;
+
+    return function (fn, deps) {
+        if (
+            lastDeps &&
+            JSON.stringify(lastDeps) === JSON.stringify(deps)
+        ) {
+            return lastFn; // return cached function
+        }
+
+        lastDeps = deps;
+        lastFn = fn;
+        return fn;
+    };
+}
+
+const useCallback = createUseCallback();
+
+// Parent Component
+function Parent() {
+    let theme = "light";
+
+    // memoized function
+    let calculateSquare = useCallback((num) => {
+        let result = 0;
+
+        // square using loop
+        for (let i = 0; i < num; i++) {
+            result += num;
+        }
+
+        return result;
+    }, []); // no dependency → same function always
+
+    function render() {
+        console.log("\nParent rendered 🎯 Theme:", theme);
+        MemoChild({ calculateSquare });
+    }
+
+    function toggleTheme() {
+        theme = theme === "light" ? "dark" : "light";
+        render();
+    }
+
+    return { render, toggleTheme };
+}
+
+// Run App
+const app = Parent();
+
+// Initial render
+app.render();
+
+// Toggle theme → child should NOT re-render
+app.toggleTheme();
+app.toggleTheme();
+
+
+
+</script>
+
+</body>
+</html>

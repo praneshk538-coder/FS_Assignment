@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+          //login form
+
+             const storedUsername = "admin";
+             const storedPassword = "1234";
+
+               const username = prompt("Enter username:");
+               const password = prompt("Enter password:");
+
+        if (username === storedUsername && password === storedPassword) {
+             console.log("Login success");
+    } else {
+              console.log("Login failed");
+         }
+              
+         // grade system
+
+             
+         let marks = 85; 
+
+               if (marks >= 90) {
+                   console.log("Grade: A");
+               } else if (marks >= 75) {
+              console.log("Grade: B");
+            } else if (marks >= 50) {
+                console.log("Grade: C");
+           } else {
+                    console.log("Grade: Fail");
+                         }
+             
+
+               //leap year
+                   
+               let year=2024;
+
+               if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                 console.log(year + " is a Leap Year");
+               } else {
+                   console.log(year + " is NOT a Leap Year");
+                     }
+
+               // divisible check 
+               
+               let num = 15; 
+
+              if (num % 3 === 0 && num % 5 === 0) {
+             console.log("Divisible by 3 and 5");
+                } else if (num % 3 === 0) {
+            console.log("Divisible by 3");
+          } else if (num % 5 === 0) {
+               console.log("Divisible by 5");
+         } else {
+               console.log("Not divisible by 3 or 5");
+         }
+                
+               // discount calculation
+               let price = 1200; // change value
+
+if (price > 1000) {
+    let discount = price * 0.10;
+    let finalPrice = price - discount;
+    console.log("Discount Applied: 10%");
+    console.log("Final Price: " + finalPrice);
+} else {
+    console.log("No Discount");
+    console.log("Final Price: " + price);
+
+
+}
+
+
+         // Temperature Check
+
+
+                 let temp = 25; 
+
+if (temp > 30) {
+    console.log("Hot");
+} else if (temp >= 20 && temp <= 30) {
+    console.log("Normal");
+} else {
+    console.log("Cold");
+}
+
+
+             //Character Check
+
+
+    let ch = 'A'; 
+
+if (ch >= 'A' && ch <= 'Z') {
+    console.log("Uppercase");
+} else if (ch >= 'a' && ch <= 'z') {
+    console.log("Lowercase");
+} else {
+    console.log("Not an alphabet");
+}
+
+                         
+              // Number Range Check
+
+  let num1 = 30; // change value
+
+if (num1 >= 10 && num1 <= 50) {
+    console.log("Number is between 10 and 50");
+} else {
+    console.log("Number is NOT between 10 and 50");
+}
+
+    </script>
+
+
+</body>
+</html>

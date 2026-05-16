@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSIGNMENT</title>
+</head>
+<body>
+    
+
+
+
+
+<script>
+
+//  q-1
+
+    
+      function greet(params) {
+        params();
+      }
+      greet(() => {
+        console.log("pranesh@##$");
+        
+      })
+
+
+      // q-2
+
+      function  calculate(a,b,callback) {
+         return callback(a,b);
+        
+      }
+
+      function add(x, y) {
+        return x + y;
+         }
+
+          console.log(calculate(5, 10, add));
+
+    // q-3
+
+              function calculate(a, b, callback) {
+                 console.log(callback(a, b));
+                  }
+
+        calculate(5, 3, (x, y) => x * y);
+
+
+//  q-4
+
+
+         function checkNumber(num, callback) {
+    callback(num);
+}
+
+checkNumber(4, (n) => {
+    console.log(n % 2 === 0 ? "Even" : "Odd");
+});
+
+
+
+ //  q-5    
+                
+                 function green(name, callback) {
+    callback(name);
+}
+
+green("Pranesh", (n) => {
+    console.log(`Welcome ${n}`);
+});
+
+
+ //  q-6
+
+
+            let arr = [10, 20, 30];
+
+            arr.forEach((value) => {
+                 console.log(value);
+                 });
+
+</script>
+
+
+</body>
+</html>
