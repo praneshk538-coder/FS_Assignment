@@ -1,0 +1,85 @@
+<script>
+//task1
+const getStudent = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Sudhan");
+    }, 2000);
+  });
+};
+
+getStudent()
+  .then((studentName) => {
+    console.log("Student Name: " + studentName);
+  });
+
+
+//task2
+
+const getEmployee = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({
+        id: 1,
+        name: "Sudhan",
+        role: "Trainer"
+      });
+    }, 3000);
+  });
+};
+
+getEmployee()
+  .then((employee) => {
+    console.log(employee);
+  });
+
+//task3
+
+const login = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Login Success");
+    }, 2000);
+  });
+};
+
+login()
+  .then((message) => {
+    console.log(message);
+  });
+
+//task4
+
+const getProducts = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve([
+        "Laptop",
+        "Mobile",
+        "Keyboard"
+      ]);
+    }, 2000);
+  });
+};
+
+getProducts()
+  .then((products) => {
+    console.log(products);
+  });
+
+//task5
+
+const orderFood = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Pizza Delivered");
+    }, 4000);
+  });
+};
+
+orderFood()
+  .then((result) => {
+    console.log(result);
+  });
+
+</script>
